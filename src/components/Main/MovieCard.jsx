@@ -10,10 +10,10 @@ const MovieCard = () => {
         <>
             {items.map((item, index) => (
 
-                <Col>
-                    <Card className='single-card-movie'>
-                        <Card.Img variant="top" src="/vite.svg" />
-                        <Card.Body>
+                <Col className="single-column">
+                    <Card className="single-card">
+                        <Card.Img variant="top" src="/vite.svg" className="movie-image" />
+                        <Card.Body className="movie-body">
                             <Card.Title> {item}</Card.Title>
                             <Card.Text>
                                 {item}
