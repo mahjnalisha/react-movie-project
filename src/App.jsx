@@ -1,14 +1,19 @@
 import React from 'react'
-import './App.css';
 import './custom.scss';
-import MainHeader from './mainHeader';
+import Header from './components/Navbar/Header';
+import Container from 'react-bootstrap/Container';
+import MovieBreadcrumb from './components/Breadcrum';
 
 const App = () => {
   return (
     <>
       <div className='app'>
-        <div className='navbar'> <MainHeader></MainHeader>   </div>
-        <main>main Component</main>
+        <div className='navbar'> <Header></Header>   </div>
+        <Container>
+          <MovieBreadcrumb></MovieBreadcrumb>
+
+        </Container>
+        <Container>main Component</Container>
       </div>
     </>
   )
