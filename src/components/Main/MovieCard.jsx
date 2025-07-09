@@ -1,28 +1,21 @@
-import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-
 import Button from 'react-bootstrap/Button';
-const MovieCard = () => {
-    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 1', 'Item 2', 'Item 3', 'Item 4'];
-
+const MovieCard = (popular_movie) => {
+    const pm = popular_movie.popular_movie
     return (
         <>
-            {items.map((item, index) => (
-
-                <Col className="single-column">
-                    <Card className="single-card">
-                        <Card.Img variant="top" src="/vite.svg" className="movie-image" />
-                        <Card.Body className="movie-body">
-                            <Card.Title> {item}</Card.Title>
-                            <Card.Text>
-                                {item}
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            ))}
+            <Card className="single-card-movie bg-dark text-white" variant="flush">
+                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${pm.poster_path}`} className="movie-image" />
+                <Card.ImgOverlay>
+                    <Card.Body className="movie-body">
+                        <Card.Title> {pm.original_title}</Card.Title>
+                        <Card.Text>
+                            {pm.overview.slice(0, 100) + " ..."}
+                        </Card.Text>
+                        <Button variant="dark">View More</Button>
+                    </Card.Body>
+                </Card.ImgOverlay>
+            </Card>
         </>
     );
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 const options = {
     method: 'GET',
     headers: {
@@ -10,10 +11,15 @@ const options = {
 const useFetch = (url) => {
     const [responses, setResponses] = useState([]);
     useEffect(() => {
-        fetch(url, options).then((res) => res.json())
-            .then((data) => setResponses(data))
+        return setResponses(fetchdata(url));
     }, [])
-    return responses;
+    // return responses;
 }
 
+const fetchdata = async (url) => {
+    const response = await fetch(url, options)
+    const data = await response.json();
+    // console.log(data);
+    return data;
+}
 export default useFetch
